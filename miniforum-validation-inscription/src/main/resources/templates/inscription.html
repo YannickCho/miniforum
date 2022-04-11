@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="fr" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="index :: headfiles">
+</head>
+<body>
+<div class="text-danger fw-bold text-center mt-5 mb-2 fs-4" th:if="${message != null}">
+    <span th:text="${message}"></span>
+</div>
+<div class="text-success fw-bold text-center mt-5 mb-2 fs-4" th:if="${confirmation != null}">
+    <span th:text="${confirmation}"></span>
+</div>
+<form class="my-5 mb-3 mx-auto justify-content-center w-50 p-3 form-horizontal" method="POST"
+      th:action="@{inscription}">
+    <div class="row">
+        <div class="col-sm-3">
+            <h1 class="text-white">Inscription</h1>
+        </div>
+    </div>
+    <div class="form-group row">
+        <label class="col-sm-3 col-form-label text-white" for="nom">Nom</label>
+        <div class="col-sm-9">
+            <input class="form-control" id="nom" name="nom" placeholder="Entrez votre nom" type="text"/>
+        </div>
+    </div>
+    <div class="form-group row mt-3">
+        <label class="col-sm-3 col-form-label text-white" for="prenom">Prénom</label>
+        <div class="col-sm-9">
+            <input class="form-control" id="prenom" name="prenom" placeholder="Entrez votre prénom" type="text"/>
+        </div>
+    </div>
+    <div class="form-group row mt-3">
+        <label class="col-sm-3 col-form-label text-white" for="age">Age</label>
+        <div class="col-sm-9">
+            <input class="form-control" id="age" name="age" placeholder="Indiquez votre age" type="text"/>
+        </div>
+    </div>
+    <div class="form-group row mt-3">
+        <label class="col-sm-3 col-form-label text-white" for="job">Profession</label>
+        <div class="col-sm-9">
+            <input class="form-control" id="job" name="job" placeholder="Indiquez votre profession" type="text"/>
+        </div>
+    </div>
+    <div class="form-group row mt-3">
+        <label class="col-sm-3 col-form-label text-white" for="hobbys">Hobbys</label>
+        <div class="col-sm-9">
+            <input class="form-control" id="hobbys" name="hobbys" placeholder="Que faites vous sur votre temps libre ?"
+                   type="text"/>
+        </div>
+    </div>
+    <div class="form-group row mt-3">
+        <label class="col-sm-3 col-form-label text-white" for="pseudo">Pseudo</label>
+        <div class="col-sm-9">
+            <input class="form-control" id="pseudo" name="pseudo" placeholder="Entrez votre pseudo" type="text"/>
+        </div>
+    </div>
+    <div class="form-group row mt-3">
+        <label class="col-sm-3 col-form-label text-white" for="email">Adresse email</label>
+        <div class="col-sm-9">
+            <input aria-describedby="emailHelp" class="form-control" id="email" name="email"
+                   placeholder="Entrez votre adresse email"
+                   type="email"/>
+            <span class="badge bg-primary text-white">Nous ne partagerons jamais votre
+                email</span>
+        </div>
+    </div>
+    <div class="form-group row mt-3">
+        <label class="col-sm-3 col-form-label text-white" for="password">Mot de passe</label>
+        <div class="col-sm-9">
+            <input class="form-control" id="password" name="password" placeholder="Mot de passe" type="password"/>
+        </div>
+    </div>
+    <div class="form-group row mt-3">
+        <label class="col-sm-3 col-form-label text-white" for="password2">Confirmation</label>
+        <div class="col-sm-9">
+            <input class="form-control" id="password2" name="password2" placeholder="Retapez votre mot de passe"
+                   type="password"/>
+        </div>
+    </div>
+    <div class="form-group">
+        <a class="btn btn-danger" th:href="@{/login}">Annuler l'inscription</a>
+        <input class="btn btn-success" type="submit" value="Valider l'inscription">
+    </div>
+</form>
+
+
+<!-- ⠄⠄⠄⣾⣿⠿⠿⠶⠿⢿⣿⣿⣿⣿⣦⣤⣄⢀⡅⢠⣾⣛⡉⠄⠄⠄⠸⢀⣿
+⠄⠄⢀⡋⣡⣴⣶⣶⡀⠄⠄⠙⢿⣿⣿⣿⣿⣿⣴⣿⣿⣿⢃⣤⣄⣀⣥⣿⣿
+⠄⠄⢸⣇⠻⣿⣿⣿⣧⣀⢀⣠⡌⢻⣿⣿⣿⣿⣿⣿⣿⣿⣿⠿⠿⠿⣿⣿⣿
+⠄⢀⢸⣿⣷⣤⣤⣤⣬⣙⣛⢿⣿⣿⣿⣿⣿⣿⡿⣿⣿⡍⠄⠄⢀⣤⣄⠉⠋
+⠄⣼⣖⣿⣿⣿⣿⣿⣿⣿⣿⣿⢿⣿⣿⣿⣿⣿⢇⣿⣿⡷⠶⠶⢿⣿⣿⠇⢀
+⠘⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣽⣿⣿⣿⡇⣿⣿⣿⣿⣿⣿⣷⣶⣥⣴⣿
+⢀⠈⢿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡟
+⢸⣿⣦⣌⣛⣻⣿⣿⣧⠙⠛⠛⡭⠅⠒⠦⠭⣭⡻⣿⣿⣿⣿⣿⣿⣿⣿⡿⠃
+⠘⣿⣿⣿⣿⣿⣿⣿⣿⡆⠄⠄⠄⠄⠄⠄⠄⠄⠹⠈⢋⣽⣿⣿⣿⣿⣵⣾⠃
+⠄⠘⣿⣿⣿⣿⣿⣿⣿⣿⠄⣴⣿⣶⣄⠄⣴⣶⠄⢀⣾⣿⣿⣿⣿⣿⣿⠃⠄
+⠄⠄⠈⠻⣿⣿⣿⣿⣿⣿⡄⢻⣿⣿⣿⠄⣿⣿⡀⣾⣿⣿⣿⣿⣛⠛⠁⠄⠄ -->
+</body>
+</html>
